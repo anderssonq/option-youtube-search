@@ -30,6 +30,6 @@ app.use(function(req, res, next) {
 });
 
 //Routers ApiRest
-app.use("/api/v1/", require("./api/routers/youtube.router"));
+app.use("/api/v1/youtube-search", require("./api/routers/youtube.router"));
 
 module.exports = app;

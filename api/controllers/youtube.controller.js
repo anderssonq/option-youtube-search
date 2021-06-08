@@ -1,8 +1,29 @@
 require("dotenv").config();
+const { google } = require("googleapis");
 
-exports.searchVideos = (req, res, next) => {
-  // const { name, email, message } = req.body;
-  res.status(500).json({
-    message: "Hello world"
+exports.searchVideos = async (req, res, next) => {
+  const { searchString, maxResults } = req.query;
+  const { APIKEY_YT } = process.env;
+
+  const response = await google.youtube("v3").search.list({
+    key: APIKEY_YT,
+    part: "snippet",
+    q: searchString,
+    maxResults,
+  });
+  const { data, status } = response;
+  const { items } = data;
+  let _videoArr = [];
+  items.forEach((item) => {
+    _videoArr.push({
+      thumbnails: item.snippet.thumbnails["medium"],
+      title: item.snippet.title,
+      description: `${item.snippet.description.slice(0, 40)}...`,
+    });
+  });
+
+  res.status(status).json({
+    data: _videoArr,
+    status
   });
 };
