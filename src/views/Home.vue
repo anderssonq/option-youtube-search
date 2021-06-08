@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home_container d-flex justify-center align-center">
+    <search-form />
+    
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import SearchForm from "../components/SearchForm";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    SearchForm,
+  },
+};
 </script>
+
+<style>
+.home_container {
+  width: 100%;
+  height: 100%;
+}
+</style>
