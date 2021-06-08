@@ -5,6 +5,15 @@ exports.searchVideos = async (req, res, next) => {
   const { searchString, maxResults } = req.query;
   const { APIKEY_YT } = process.env;
 
+  if (!searchString || !maxResults) {
+    res.status(400).json({
+      message: 'Invalid request!, be sure what data you are sending us!',
+      status: 400
+    });
+
+    return
+  }
+
   const response = await google.youtube("v3").search.list({
     key: APIKEY_YT,
     part: "snippet",
