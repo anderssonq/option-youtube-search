@@ -4,12 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 //Settings
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
+app.use(express.json());
 
 //Middlewares
 const morgan = require("morgan");
