@@ -4,8 +4,9 @@
     elevation="2"
     large
     outlined
-    class="ml-2 mr-2"
+    class="ma-2"
     :disabled="disabled"
+    :block="block"
     @click="$emit('onHandlerFunction')"
   >
     {{ label }}</v-btn
@@ -20,14 +21,18 @@ export default {
       type: String,
       default: () => `Click me!`,
     },
+    block: {
+      type: Boolean,
+      default: () => false,
+    },
     disabled: {
       type: Boolean,
       default: () => false,
     },
     color: {
-        type: String,
-        default: () =>(`primary`)
-    }
+      type: String,
+      default: () => `primary`,
+    },
   },
 };
 </script>

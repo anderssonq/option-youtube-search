@@ -6,6 +6,8 @@
     :required="required"
     :rules="required ? [(v) => !!v || `${label} is required.`] : []"
     dense
+    filled
+    rounded
     color="primary"
     @input="$emit('input', valueInside)"
   />

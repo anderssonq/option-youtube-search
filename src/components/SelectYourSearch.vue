@@ -9,6 +9,8 @@
     item-text="text"
     item-value="value"
     dense
+    filled
+    rounded
     color="primary"
     @input="$emit('input', valueInside)"
   />
