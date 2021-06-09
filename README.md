@@ -13,6 +13,11 @@ You can also run additional npm tasks such as
 - `npm run build` to build your frontend app
 - `npm run start:back` to run backend services and entire app.
 
+## run test 📝
+In this project we are using Jest for unit testing
+- `npm run jest` to run all tests!
+- You can see wheres tests localed at /tests/unit/*.test.js
+
 ## enviroment vars 🔒 
 - `VUE_APP_API_BACKEND_URL` copy and past backend base url.
 - `APIKEY_YT` copy and past api key credentils from google [Google console](https://console.cloud.google.com/).
