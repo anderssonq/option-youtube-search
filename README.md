@@ -1,5 +1,6 @@
 # Your Search App! 🔥
-- Software Engineer Andersson Quintero.
+- A quick full stack app where you can search videos from youtube using google's api, i used vue2, vuex, localstorage, axios, node with express, and js, tests was made with jest to both technologies.
+- Software Engineer - Andersson Quintero.
 
 ## Getting Started 📝 
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
@@ -13,12 +14,12 @@ You can also run additional npm tasks such as
 - `npm run build` to build your frontend app
 - `npm run start:back` to run backend services and the entire app.
 
-## run test 📝
+## Run test 📝
 In this project we are using Jest for unit testing
 - `npm run tests` to run all tests!
 - You can see wheres tests localed at /tests/unit/*.test.js
 
-## enviroment vars 🔒 
+## Enviroment vars 🔒 
 - `VUE_APP_API_BACKEND_URL` backend base url.
 - `APIKEY_YT` api key credentils from google [Google console](https://console.cloud.google.com/).
 
