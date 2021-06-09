@@ -1,3 +1,4 @@
+"use strict";
 require("dotenv").config();
 const { google } = require("googleapis");
 
@@ -7,11 +8,11 @@ exports.searchVideos = async (req, res, next) => {
 
   if (!searchString || !maxResults) {
     res.status(400).json({
-      message: 'Invalid request!, be sure what data you are sending us!',
-      status: 400
+      message: "Invalid request!, be sure what data you are sending us!",
+      status: 400,
     });
 
-    return
+    return;
   }
 
   const response = await google.youtube("v3").search.list({
@@ -33,6 +34,6 @@ exports.searchVideos = async (req, res, next) => {
 
   res.status(status).json({
     data: _videoArr,
-    status
+    status,
   });
 };

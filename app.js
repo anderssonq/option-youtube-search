@@ -1,3 +1,4 @@
+"use strict";
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -6,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 );
 
@@ -15,6 +16,7 @@ const morgan = require("morgan");
 app.use(morgan("dev"));
 app.use(express.json());
 
+// Cors
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

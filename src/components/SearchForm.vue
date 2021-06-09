@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12">
           <h1 class="text-center font-weight-light">
-            Type whatever you want, <strong>we are going to find your video!</strong>
+            Type whatever you want, <strong>we are going to find your video!</strong> 😎
           </h1>
         </v-col>
         <v-col cols="12" md="8">
@@ -27,13 +27,13 @@
           class="d-flex justify-space-around flex-wrap btn_control"
         >
           <btn-your-search
-            :label="`Search video!`"
+            :label="`Search video! 🔍`"
             :block="$vuetify.breakpoint.mobile"
             :disabled="isLoading"
             @onHandlerFunction="onSubmitSearch()"
           />
           <btn-your-search
-            :label="`Start again (Clear data)`"
+            :label="`Start again (Clear data) 🚫`"
             :block="$vuetify.breakpoint.mobile"
             :color="`secondary`"
             @onHandlerFunction="onRestart()"
