@@ -26,7 +26,7 @@ export default {
       default: () => false,
     },
     disabled: {
-      type: Boolean,
+      type: [Boolean, Function],
       default: () => false,
     },
     color: {

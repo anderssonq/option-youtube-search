@@ -27,7 +27,7 @@ exports.searchVideos = async (req, res, next) => {
     _videoArr.push({
       thumbnails: item.snippet.thumbnails["medium"],
       title: item.snippet.title,
-      description: `${item.snippet.description.slice(0, 40)}...`,
+      description: `${item.snippet.description.slice(0, 160)}...`,
     });
   });
 
