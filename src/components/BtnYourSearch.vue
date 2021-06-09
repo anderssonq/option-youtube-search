@@ -1,9 +1,10 @@
 <template>
   <v-btn
-    color="primary"
+    :color="color"
     elevation="2"
     large
     outlined
+    class="ml-2 mr-2"
     :disabled="disabled"
     @click="$emit('onHandlerFunction')"
   >
@@ -21,8 +22,12 @@ export default {
     },
     disabled: {
       type: Boolean,
-      default: () => (false),
+      default: () => false,
     },
+    color: {
+        type: String,
+        default: () =>(`primary`)
+    }
   },
 };
 </script>

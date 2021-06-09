@@ -2,20 +2,26 @@
   <v-app>
     <header-app />
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import HeaderApp from "./components/HeaderApp.vue";
+import { mapActions } from "vuex";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HeaderApp
+    HeaderApp,
   },
-  data: () => ({
-    //
-  }),
+  mounted() {
+    setTimeout(() => {
+      this.restoreData();
+    }, 2000);
+  },
+  methods: {
+    ...mapActions(["restoreData"]),
+  },
 };
 </script>

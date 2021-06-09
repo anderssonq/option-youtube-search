@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto pa-10 elevation-8 ml-12 mr-12">
+  <v-card class="mx-auto pa-10 elevation-4 ml-12 mr-12">
     <v-form ref="form" lazy-validation>
       <v-row>
         <v-col cols="12">
@@ -23,6 +23,11 @@
         </v-col>
         <v-col cols="12" class="d-flex flex-row-reverse">
           <btn-your-search
+            :label="`Start again (Clear data)`"
+            :color="`secondary`"
+            @onHandlerFunction="onRestart()"
+          />
+          <btn-your-search
             :label="`Search video!`"
             @onHandlerFunction="onSubmitSearch()"
           />
@@ -36,12 +41,22 @@
 import InputYourSearch from "../components/InputYourSearch.vue";
 import SelectYourSearch from "../components/SelectYourSearch.vue";
 import BtnYourSearch from "../components/BtnYourSearch.vue";
+import axios from "axios";
+import { mapActions } from "vuex";
 export default {
   name: "SearchForm",
   components: {
     InputYourSearch,
     SelectYourSearch,
     BtnYourSearch,
+  },
+  computed: {
+    axiosParams() {
+      const params = new URLSearchParams();
+      params.append("searchString", this.textSearch);
+      params.append("maxResults", this.maxResults);
+      return params;
+    },
   },
   data: () => ({
     textSearch: "",
@@ -50,14 +65,37 @@ export default {
       { text: "5 Results", value: 5 },
       { text: "10 Results", value: 10 },
       { text: "15 Results", value: 15 },
-      { text: "All", value: true },
+      { text: "I don't know", value: 99999 },
     ],
   }),
   methods: {
-    onSubmitSearch: function() {
+    ...mapActions([
+      "setVideos",
+      "turnOnLoading",
+      "turnOffLoading",
+      "clearData",
+    ]),
+    onSubmitSearch: async function() {
       if (this.$refs.form.validate()) {
-        console.log(this.textSearch, this.maxResults);
+        this.turnOnLoading();
+        const response = await axios.get(
+          `${process.env.VUE_APP_API_BACKEND_URL}/youtube-search`,
+          {
+            params: this.axiosParams,
+          }
+        );
+
+        const { data, status } = response.data;
+        if (status === 200) {
+          this.setVideos(data);
+        } else {
+          alert("Something is wrong!!");
+        }
+        this.turnOffLoading();
       }
+    },
+    onRestart: function() {
+      this.clearData();
     },
   },
 };
