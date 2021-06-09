@@ -12,6 +12,7 @@
     @input="$emit('input', valueInside)"
   />
 </template>
+
 <script>
 export default {
   name: "InputYourSearch",

@@ -7,8 +7,9 @@
     "start": "node server.js",
     "start:front": "vue-cli-service serve",
     "start:back": "nodemon server",
-    "test:front": "vue-cli-service test:unit --verbose --silent",
-    "jest:back": "jest --verbose --silent",
+    "tests": "jest --verbose --silent",
+    "jest:front": "vue-cli-service test:unit your_search_front.test.js --verbose --silent",
+    "jest:back": "jest your_search_api.test.js --verbose --silent",
     "jest:watch": "yarn jest -- --watch"
   },
   "dependencies": {

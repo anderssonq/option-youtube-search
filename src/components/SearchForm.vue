@@ -50,6 +50,7 @@ import SelectYourSearch from "../components/SelectYourSearch.vue";
 import BtnYourSearch from "../components/BtnYourSearch.vue";
 import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "SearchForm",
   components: {

@@ -3,7 +3,6 @@ const supertest = require("supertest");
 // getting express app from ./app.js
 const app = require("../../app");
 const server = require("../../server");
-
 const api = supertest(app);
 
 describe("Backend unit testing", () => {

@@ -1,28 +1,24 @@
 <template>
   <div class="video_list_container ma-4 d-flex flex-wrap justify-center">
-    <v-card
-      class="ma-12 elevation-8"
-      max-width="274"
+    <card-video
       v-for="(video, index) in videos"
       :key="index"
-    >
-      <v-img height="250" :src="video.thumbnails.url"></v-img>
-
-      <v-card-title>{{ video.title }}</v-card-title>
-
-      <v-card-text>
-        <div>
-          {{ video.description }}
-        </div>
-      </v-card-text>
-    </v-card>
+      :url="video.thumbnails.url"
+      :title="video.title"
+      :description="video.description"
+    />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import CardVideo from "./CardVideo.vue";
+
 export default {
   name: "ListVideos",
+  components: {
+    CardVideo,
+  },
   computed: {
     ...mapGetters(["videos"]),
   },
