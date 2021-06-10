@@ -8,13 +8,7 @@
   >
     <search-form />
     <list-videos v-if="videos.length > 0 && !isLoading" />
-    <v-progress-circular
-      v-if="isLoading"
-      :size="70"
-      :width="7"
-      color="red"
-      indeterminate
-    ></v-progress-circular>
+    <circular-loader v-if="isLoading" />
   </div>
 </template>
 
@@ -22,11 +16,13 @@
 import { mapGetters } from "vuex";
 import SearchForm from "../components/SearchForm";
 import ListVideos from "../components/ListVideos.vue";
+import CircularLoader from "../components/CircularLoader.vue";
 export default {
   name: "Home",
   components: {
     SearchForm,
     ListVideos,
+    CircularLoader,
   },
   computed: {
     ...mapGetters(["isLoading", "videos"]),
